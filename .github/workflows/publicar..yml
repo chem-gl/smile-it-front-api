@@ -8,34 +8,11 @@ on:
 jobs:
   publish:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      packages: write
-
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout código
+        uses: actions/checkout@v2
 
-      - name: Instalar pnpm
-        uses: pnpm/action-setup@v2
+      - name: Publicar usando github-action-node-release
+        uses: fdiesel/github-action-node-release@v3.3.0
         with:
-          version: 8
-
-      - name: Instalar Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 19
-          cache: pnpm
-          registry-url: https://npm.pkg.github.com
-          scope: '@chem-gl'
-
-      - name: Instalar dependencias
-        run: pnpm install
-
-      - name: Compilar
-        run: pnpm build
-
-      - name: Publicar
-        run: pnpm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        working-directory: dist
+          token: ${{ secrets.GITHUB_TOKEN }}
