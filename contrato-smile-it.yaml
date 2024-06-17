@@ -221,7 +221,7 @@ components:
           description: Descripción del error.
         codigo:
           type: integer
-          description: Código numérico del error.
+          description: Código numérico del error http.
         detalles:
           type: string
           description: Detalles adicionales sobre el error.

@@ -23,7 +23,7 @@ export interface ErrorObject {
      */
     descripcion?: string;
     /**
-     * Código numérico del error.
+     * Código numérico del error http.
      * @type {number}
      * @memberof ErrorObject
      */
