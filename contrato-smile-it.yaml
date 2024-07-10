@@ -33,7 +33,7 @@ paths:
                   items:
                     $ref: "#/components/schemas/Molecule"
       responses:
-        '200':
+        "200":
           description: Lista de moléculas generada exitosamente.
           content:
             application/json:
@@ -41,7 +41,7 @@ paths:
                 type: array
                 items:
                   $ref: "#/components/schemas/GeneratedMolecule"
-        '400':
+        "400":
           description: Error en la solicitud.
           content:
             application/json:
@@ -62,14 +62,14 @@ paths:
             type: string
           description: SMILES que describe la molécula de la cual se desea obtener la imagen.
       responses:
-        '200':
+        "200":
           description: Imagen de la molécula en formato JPEG.
           content:
-            'image/jpeg':
+            image/jpeg:
               schema:
                 type: string
                 format: binary
-        '404':
+        "404":
           description: No se pudo generar la imagen correctamente.
           content:
             application/json:
@@ -101,14 +101,14 @@ paths:
                 substitute:
                   $ref: "#/components/schemas/Molecule"
       responses:
-        '200':
+        "200":
           description: Imagen de la molécula y su sustituyente en formato JPEG.
           content:
-            'image/jpeg':
+            image/jpeg:
               schema:
                 type: string
                 format: binary
-        '404':
+        "404":
           description: No se encontró la imagen para el SMILES especificado.
           content:
             application/json:
@@ -133,14 +133,14 @@ paths:
                 substitute:
                   $ref: "#/components/schemas/Molecule"
       responses:
-        '200':
+        "200":
           description: Imagen de la molécula y su sustituyente en formato JPEG.
           content:
-            'image/jpeg':
+            image/jpeg:
               schema:
                 type: string
                 format: binary
-        '400':
+        "400":
           description: Error en la solicitud.
           content:
             application/json:
@@ -154,7 +154,7 @@ paths:
       tags:
         - Version
       responses:
-        '200':
+        "200":
           description: Versión de la API.
           content:
             application/json:
@@ -164,7 +164,7 @@ paths:
                   version:
                     type: string
                     example: "1.0.0"
-        '500':
+        "500":
           description: Error interno del servidor.
           content:
             application/json:
@@ -202,10 +202,8 @@ components:
           description: Nombre de la molécula generada.
         moleculaPrincipal:
           $ref: "#/components/schemas/Molecule"
-          description: Detalles de la molécula principal.
         sustituyente:
           $ref: "#/components/schemas/Molecule"
-          description: Detalles del sustituyente aplicado.
         posicionMoleculaPrincipal:
           type: integer
           description: Posición de la molécula principal.

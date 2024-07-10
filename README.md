@@ -1,1 +1,0 @@
-# smile-it-front-api
